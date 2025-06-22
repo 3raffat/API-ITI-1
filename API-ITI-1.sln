@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36212.18 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API-ITI-1", "API-ITI-1\API-ITI-1.csproj", "{DFB83750-0F01-403F-B9B1-A85705BD0473}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFB83750-0F01-403F-B9B1-A85705BD0473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB83750-0F01-403F-B9B1-A85705BD0473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB83750-0F01-403F-B9B1-A85705BD0473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB83750-0F01-403F-B9B1-A85705BD0473}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B876FA4-E4CF-40DB-BB29-9F7350ABD0C6}
+	EndGlobalSection
+EndGlobal
