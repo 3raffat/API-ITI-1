@@ -1,5 +1,7 @@
-﻿using API_ITI_1.Models;
+﻿using API_ITI_1.DTO.CoursesDto_s;
+using API_ITI_1.Models;
 using API_ITI_1.Models.Repositories;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -11,10 +13,12 @@ namespace API_ITI_1.Controllers
     public class CoursesController : ControllerBase
     {
         public IRepository<Courses> Courses { get; }
+        public IMapper Mapper { get; }
 
-        public CoursesController(IRepository<Courses> Courses)
+        public CoursesController(IRepository<Courses> Courses, IMapper mapper)
         {
             this.Courses = Courses;
+            Mapper = mapper;
         }
 
         //
@@ -22,11 +26,22 @@ namespace API_ITI_1.Controllers
         public ActionResult GetAllCorses()
         {
            var data = Courses.View();
+            //List< CoursesGetDto > coursesGetDtos = new List<CoursesGetDto>();
+            //foreach (var course in data)
+            //{
+            //    coursesGetDtos.Add(new CoursesGetDto
+            //    {
+            //        Id = course.Id,
+            //        Crs_Name = course.Crs_Name,
+            //        Crs_Description = course.Crs_Description
+            //    });
+            //}
+            var coursesGetDtos= Mapper.Map<List<CoursesGetDto>>(data);
             if (data.Count == 0)
             {
                 return NotFound("No courses found");
             }
-            return Ok(data);
+            return Ok(coursesGetDtos);
 
         }
         //
@@ -74,7 +89,7 @@ namespace API_ITI_1.Controllers
 
         }
         //
-        [HttpPut("/api/UpdateCourse/{Id,Course}")]
+        [HttpPut("/api/UpdateCourse/{Id}")]
         public ActionResult UpdateCourse(int Id, Courses Course )
         {
             var data = Courses.FindById(Id);
